@@ -26,14 +26,16 @@ class ViewController: UIViewController {
                     if let json = try? JSONSerialization.jsonObject(with: urldata, options: []) as? [String : Double] {
                         if let jsonDict = json {
                             DispatchQueue.main.async {
+                                
                                 if let usdPrice = jsonDict["USD"]{
-                                    self.usdPricelbl.text = "$\(usdPrice)"
+                                    
+                                self.usdPricelbl.text = self.doubleToMoneyString(price: usdPrice, currencyCode: "USD")
                                 }
                                 if let eurPrice = jsonDict["EUR"]{
-                                    self.eurPricelbl.text = "$\(eurPrice)"
+                                    self.eurPricelbl.text = self.doubleToMoneyString(price: eurPrice, currencyCode: "EUR")
                                 }
                                 if let jpyPrice = jsonDict["JPY"]{
-                                    self.jpyPricelbl.text = "$\(jpyPrice)"
+                                    self.jpyPricelbl.text = self.doubleToMoneyString(price: jpyPrice, currencyCode: "JPY")
                                 }
                             }
                         }
@@ -44,6 +46,14 @@ class ViewController: UIViewController {
                 }
                 }.resume()
         }
+    }
+    
+    func doubleToMoneyString(price:Double,currencyCode:String) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencyCode = currencyCode
+        let priceString = formatter.string(from: NSNumber(value: price))
+        return priceString
     }
     
     @IBAction func refreshTapped(_ sender: Any) {

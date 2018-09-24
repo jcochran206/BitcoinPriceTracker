@@ -17,14 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lor-2H-lMm">
-                                <rect key="frame" x="100" y="269" width="175" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btc" translatesAutoresizingMaskIntoConstraints="NO" id="lor-2H-lMm">
+                                <rect key="frame" x="100" y="269" width="175" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lor-2H-lMm" secondAttribute="height" multiplier="1:1" id="mI2-BK-9pW"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$6000.25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="6mx-Iy-kyu">
+                                <rect key="frame" x="20" y="206" width="335" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="ySE-X0-sQn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💲" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehs-RU-iLa">
+                                <rect key="frame" x="20" y="452" width="335" height="29"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="฿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEA-l9-pjX">
+                                <rect key="frame" x="20" y="489" width="335" height="29"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="lor-2H-lMm" firstAttribute="top" secondItem="6mx-Iy-kyu" secondAttribute="bottom" constant="8" symbolic="YES" id="4n9-X1-8Tq"/>
+                            <constraint firstItem="6mx-Iy-kyu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6JQ-3s-i5e"/>
+                            <constraint firstItem="ehs-RU-iLa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9h3-4h-xfk"/>
                             <constraint firstItem="lor-2H-lMm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="GAL-sd-QbQ"/>
+                            <constraint firstItem="6mx-Iy-kyu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="142" id="Kmn-cK-DVs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lor-2H-lMm" secondAttribute="trailing" constant="100" id="RY3-vR-zkF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6mx-Iy-kyu" secondAttribute="trailing" constant="20" id="VEp-T9-evd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GEA-l9-pjX" secondAttribute="trailing" constant="20" id="gv2-23-8vO"/>
+                            <constraint firstItem="GEA-l9-pjX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kgm-jG-wEH"/>
+                            <constraint firstItem="GEA-l9-pjX" firstAttribute="top" secondItem="ehs-RU-iLa" secondAttribute="bottom" constant="8" id="lky-rC-6db"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ehs-RU-iLa" secondAttribute="trailing" constant="20" id="r7W-T5-SQ4"/>
+                            <constraint firstItem="ehs-RU-iLa" firstAttribute="top" secondItem="lor-2H-lMm" secondAttribute="bottom" constant="8" id="ya9-pG-qPL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -53,4 +87,7 @@
             <point key="canvasLocation" x="-703" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btc" width="128" height="128"/>
+    </resources>
 </document>

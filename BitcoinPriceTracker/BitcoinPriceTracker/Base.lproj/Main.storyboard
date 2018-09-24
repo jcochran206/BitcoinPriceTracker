@@ -63,8 +63,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Bitcoin Price" id="xCl-w6-5vp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="HZC-Me-aIZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="HZC-Me-aIZ">
+                            <connections>
+                                <action selector="refreshTapped:" destination="BYZ-38-t0r" id="ZRa-DT-hSk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="eurPricelbl" destination="ehs-RU-iLa" id="ygJ-3t-nkE"/>
+                        <outlet property="jpyPricelbl" destination="GEA-l9-pjX" id="VTg-sH-IVI"/>
+                        <outlet property="usdPricelbl" destination="6mx-Iy-kyu" id="Ygv-ic-ANS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -18,7 +18,7 @@ App that utilizes JSON api to provide latest Bitcoin price in US, EURO, and Yen.
 2. $ open "BitcoinPriceTracker.xcworkspace"
 
 ## Author
-** Jonathan Cochran **
+**Jonathan Cochran**
 
 ## Legal
 This application is utilizing the MIT License for open source

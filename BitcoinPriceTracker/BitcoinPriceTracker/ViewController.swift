@@ -15,8 +15,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
+        getDefaultPrices()
         getPrice()
+    }
+    
+    func getDefaultPrices(){
+        let usdPrice = UserDefaults.standard.double(forKey: "USD")
+        if usdPrice != 0.0{
+            self.usdPricelbl.text = self.doubleToMoneyString(price: usdPrice, currencyCode: "USD") + "~"
+        }
+        let eurPrice = UserDefaults.standard.double(forKey: "EUR")
+        if eurPrice != 0.0{
+            self.eurPricelbl.text = self.doubleToMoneyString(price: eurPrice, currencyCode: "EUR") + "~"
+        }
+        let jpyPrice = UserDefaults.standard.double(forKey: "JPY")
+        if jpyPrice != 0.0{
+            self.jpyPricelbl.text = self.doubleToMoneyString(price: jpyPrice, currencyCode: "JPY") + "~"
+        }
     }
     
     func getPrice() {
@@ -30,13 +46,18 @@ class ViewController: UIViewController {
                                 if let usdPrice = jsonDict["USD"]{
                                     
                                 self.usdPricelbl.text = self.doubleToMoneyString(price: usdPrice, currencyCode: "USD")
+                                    UserDefaults.standard.set(usdPrice, forKey: "USD")
+                                    
                                 }
                                 if let eurPrice = jsonDict["EUR"]{
                                     self.eurPricelbl.text = self.doubleToMoneyString(price: eurPrice, currencyCode: "EUR")
+                                    UserDefaults.standard.set(eurPrice, forKey: "EUR")
                                 }
                                 if let jpyPrice = jsonDict["JPY"]{
                                     self.jpyPricelbl.text = self.doubleToMoneyString(price: jpyPrice, currencyCode: "JPY")
+                                    UserDefaults.standard.set(jpyPrice, forKey: "JPY")
                                 }
+                                UserDefaults.standard.synchronize()
                             }
                         }
                     }
@@ -48,12 +69,16 @@ class ViewController: UIViewController {
         }
     }
     
-    func doubleToMoneyString(price:Double,currencyCode:String) -> String? {
+    func doubleToMoneyString(price:Double,currencyCode:String) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.currencyCode = currencyCode
         let priceString = formatter.string(from: NSNumber(value: price))
-        return priceString
+        if priceString == nil {
+            return "ERROR"
+        } else {
+            return priceString!
+        }
     }
     
     @IBAction func refreshTapped(_ sender: Any) {
